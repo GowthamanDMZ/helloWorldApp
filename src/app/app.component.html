@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 bluecolored>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<div *ngIf="visible; then evenClicked else oddClicked">
+  Visible text
+</div>
+
+<div *ngIf="visible; else oddClicked">
+  without then
+</div>
+
+<div>
+  <button (click)="toggleDiv()">Button</button>
+</div>
+
+<div *ngIf="counter % 2 == 0; let ranVar">
+  variable={{ranVar}}
+</div>
+
+<div>
+  <button (click)="startCounter()">Counter</button>
+</div>
+
+<div *ngIf="testObj.uiLang; let uiLanguage">
+    printing array: {{uiLanguage.join(',')}}
+</div>
+
+<ul *ngFor="let lang of testArray; let i = index;">
+  <li>{{i}}.  {{lang.name}} - {{lang.type}}</li>
+</ul>
+
+<ng-template #oddClicked>Odd number of clicks</ng-template>
+<ng-template #evenClicked>Even number of clicks</ng-template>
+
